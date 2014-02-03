@@ -1,9 +1,15 @@
 package com.caboa.PruebasJava;
 
+
+
 public class Main
 {
+    
+    public static Funciones funciones = new Funciones();
+    
     public static void main (String [] arg)
     {
-        System.out.println("Hola, mundo.");
+        funciones.holaMundo();
+        funciones.sumarEntrada();
     }
 }
