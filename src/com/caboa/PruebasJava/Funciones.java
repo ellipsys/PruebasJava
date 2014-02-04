@@ -13,7 +13,7 @@ public class Funciones
     //Función que dice Hola Mundo.
     public void holaMundo()
     {
-        System.out.println("Hola, mundo. Esto es una función.");
+        System.out.println("Hola, mundo. Esto es una funcion.");
     }
     
     //Función que suma dos números.
@@ -56,7 +56,7 @@ public class Funciones
             ReadableByteChannel rbc = Channels.newChannel(website.openStream());
             FileOutputStream fos = new FileOutputStream("\\PruebaJavaDescarga\\imagen.jpg");
             fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
-            System.out.println("Archivo descargado.\nPresione una tecla para salir.");
+            System.out.println("Archivo descargado.\nPresione enter para salir.");
             escaner.nextLine();
         }
         //Si hay algún error, se muestra en pantalla.
