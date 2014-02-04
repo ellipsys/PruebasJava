@@ -14,7 +14,7 @@ public class Funciones
     public void holaMundo()
     {
         System.out.println("Hola, mundo. Esto es una funcion.");
-    }
+    }//holaMundo
     
     //Función que suma dos números.
     public void sumarEntrada()
@@ -28,7 +28,7 @@ public class Funciones
         y = entrada.nextInt(); //Suma la entrada.
         resultado = x + y;
         System.out.println(x + " + " + y + " es igual a: " + resultado); //Lo saca todo por la salida de consola.
-    }
+    }//sumarEntrada
     
     //Función que descarga un archivo.
     public void descargarArchivo()
@@ -65,6 +65,6 @@ public class Funciones
             System.out.println(ex.toString());
         }
         
-    }
+    }//descargarArchivo
     
-}
+}//Funciones
