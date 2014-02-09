@@ -31,13 +31,57 @@ public class Funciones
     }//sumarEntrada
     
     //Función que descarga un archivo.
-    public void descargarArchivo()
+    public void comprobarDescarga()
     {
         Scanner escaner = new Scanner(System.in);
         //Bloque para crear el directorio y si existe borrar todo lo que hay dentro.
+            String entrada;
+            System.out.println("Para descargar escriba D, para borrar B: ");
+            entrada = escaner.next();
+            if (entrada.equalsIgnoreCase("D"))
+            {
+                Descargar();
+                escaner.nextLine();
+                escaner.nextLine();
+            }
+            else if (entrada.equalsIgnoreCase("B"))
+            {
+                Borrar();
+                escaner.nextLine();
+                escaner.nextLine();
+            }
+            else
+            {
+                System.out.println("Error. Saliendo del programa.");
+                System.exit(0);
+            }
+    }
+    
+    public void Borrar()
+    {
+        File directory = new File("./PruebaJavaDescarga");
+         if(directory.exists())
+            {
+                System.out.println("Borrando carpeta...");
+                File[] archivos = directory.listFiles();
+                for (File archivo : archivos) {
+                    archivo.delete();
+                }
+                directory.delete();
+                System.out.println("Carpeta borrada.\nPresione enter para salir.");
+            }
+         else
+         {
+             System.out.println("La carpeta no existe.\nPresione enter para salir.");
+         }
+        
+    }
+    
+    public void Descargar()
+    {
         try
         {
-            File directory = new File("\\PruebaJavaDescarga");
+        File directory = new File("./PruebaJavaDescarga");
             if(!directory.exists())
             {
                 directory.mkdir();
@@ -48,23 +92,19 @@ public class Funciones
                 for (File archivo : archivos) {
                     archivo.delete();
                 }
-                directory.delete();
-                directory.mkdir();
             }
             System.out.println("Carpeta creada, descargando archivo...");
             URL website = new URL("http://www.quickmeme.com/img/a8/a8aa5dc509f0d6fc9269c8be93e4341c83645c6120fdcd9d0f983fbb92274bf1.jpg".toString());
             ReadableByteChannel rbc = Channels.newChannel(website.openStream());
-            FileOutputStream fos = new FileOutputStream("\\PruebaJavaDescarga\\imagen.jpg");
+            FileOutputStream fos = new FileOutputStream("./PruebaJavaDescarga/imagen.jpg");
             fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
             System.out.println("Archivo descargado.\nPresione enter para salir.");
-            escaner.nextLine();
         }
         //Si hay algún error, se muestra en pantalla.
         catch (IOException ex)
         {
             System.out.println(ex.toString());
         }
-        
-    }//descargarArchivo
+    }
     
 }//Funciones

@@ -11,6 +11,6 @@ public class Main
     {
         funciones.holaMundo();
         //funciones.sumarEntrada();
-        funciones.descargarArchivo();
+        funciones.comprobarDescarga();
     }
 }
